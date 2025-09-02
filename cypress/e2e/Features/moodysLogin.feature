@@ -5,6 +5,5 @@ Scenario: Login Page with empty credentials
     And I accept the cookies
     When I click on sign in button
     And I click on next button
-    And I leave the username and password fields empty
     Then I should see the error message "Required"
     

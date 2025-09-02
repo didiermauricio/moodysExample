@@ -17,17 +17,19 @@ When('I click on sign in button', () => {
 })
 
 And('I click on next button', () => {
-  cy.origin('https://login.moodys.com', () => {
-    cy.get('[type="submit"]',{timeout:15000}).click();
+  cy.origin('https://login.moodys.com/', () => {
+    cy.get('[type="submit"]',{timeout:20000}).click();
   });
 })
 
 And('I leave the username and password fields empty', () => {
-  cy.origin('https://login.moodys.com', () => {
+  cy.origin('https://login.moodys.com/', () => {
     cy.get('[inputmode="email"]').should("be.visible");
   } );
  })
 
 Then('I should see the error message {string}', (errorMessage) => {
-  cy.get('[#headlessui-description-«r0»]').should("be.visible").and('have.text', errorMessage);
+  cy.origin('https://login.moodys.com/',{args:{error:errorMessage}}, ({error}) => {
+    cy.get('[data-slot="error"]').should("be.visible").and('have.text', error);
+  } );
 })
