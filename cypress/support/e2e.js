@@ -16,6 +16,9 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 
+
+require('@cypress/xpath');
+
 Cypress.on('uncaught:exception', (err, runnable) => {
   // Si el error es del tipo React #418 o viene de cross-origin, ignóralo
   if (err.message.includes('Minified React error #418')) {

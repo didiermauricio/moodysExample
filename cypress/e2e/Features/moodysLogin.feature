@@ -25,6 +25,7 @@ Scenario Outline: Login Page with empty password field
     And I accept the cookies
     When I click on sign in button    
     And I fill the username field with "<userName>" value
+    And I click on next button
     And I leave the password field empty
     And I click on next button
     Then I should see the error message "Required"
@@ -38,9 +39,10 @@ Scenario Outline: Login Page with wrong password field
     And I accept the cookies
     When I click on sign in button
     And I fill the username field with "<userName>" value
+    And I click on next button
     And I fill the password field with "<password>" value
     And I click on next button
-    Then I should see the error message "Please enter a valid email."
+    Then I should see the error message "Invalid email or password."
 
 Examples:
 |userName     |password   |
