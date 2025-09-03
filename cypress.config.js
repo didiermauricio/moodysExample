@@ -3,6 +3,7 @@ const cucumber = require("cypress-cucumber-preprocessor").default;
 
 module.exports = defineConfig({
   e2e: {
+    experimentalStudio: true,
     baseUrl: "https://www.moodys.com",
     specPattern: "**/*.feature",
     setupNodeEvents(on, config) {

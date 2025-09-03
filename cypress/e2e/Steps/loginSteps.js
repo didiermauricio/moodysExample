@@ -25,9 +25,7 @@ And('I accept the cookies', () => {
 });
 
 When('I click on sign in button', () => { 
-  cy.get(locators.signInButton).should("be.visible").and("be.enabled");
-  cy.get(locators.signInButton).click(); 
-  cy.wait(5000);
+  cy.contains("Sign In").should("be.visible").and("be.enabled").click();  
 });
 
 
@@ -52,8 +50,7 @@ And('I leave the username field empty', () => {
 
  And('I fill the username field with {string} value', (userName) => {
   cy.origin(loginBaseUrl,{args:{locators, userName}}, ({locators,userName}) => {
-    cy.get(locators.emailField).should("be.visible");
-    cy.get(locators.emailField).should("be.enabled");
+    cy.get(locators.emailField).should("be.visible").and("be.enabled");
     cy.get(locators.emailField).type(userName);
   } );
  })
